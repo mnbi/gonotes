@@ -19,4 +19,4 @@ build:
 
 .PHONY: clean
 clean:
-	rm ./gonotes
+	rm ./$(PROGRAM_NAME)
