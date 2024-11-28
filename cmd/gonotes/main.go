@@ -5,9 +5,11 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/mnbi/gonotes"
 	"github.com/mnbi/gonotes/internal/conf"
+	"github.com/mnbi/gonotes/internal/textrepo"
 )
 
 var (
@@ -40,12 +42,22 @@ func main() {
 
 	fmt.Printf("---- configuration settings ----\n")
 
+	configFile, _ = filepath.Abs(configFile)
 	if err := conf.Init(configFile); err != nil {
 		fmt.Fprint(os.Stderr, err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("repo type: %s\n", conf.RepoType())
-	fmt.Printf("repo name: %s\n", conf.RepoName())
-	fmt.Printf("repo base: %s\n", conf.RepoBase())
+	fmt.Printf("conf - repo type: %s\n", conf.RepoType())
+	fmt.Printf("conf - repo name: %s\n", conf.RepoName())
+	fmt.Printf("conf - repo base: %s\n", conf.RepoBase())
+
+	fmt.Printf("---- repository settings ----\n")
+
+	repo := textrepo.NewRepo()
+
+	fmt.Printf("repo - type: %s\n", repo.Type)
+	fmt.Printf("repo - name: %s\n", repo.Name)
+	fmt.Printf("repo - root: %s\n", repo.Root)
+	fmt.Printf("repo - ext: %s\n", repo.Ext)
 }
