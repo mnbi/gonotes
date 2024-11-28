@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+- Add `textrepo`, which is a internal sub-package (#1).
 - Add `conf`, which is a internal sub-package (#4).
 - Add `env`, which is a internal sub-package (#4).
 - Move `timestamp` into the `internal` directory.
