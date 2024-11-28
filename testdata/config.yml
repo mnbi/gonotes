@@ -1,0 +1,4 @@
+---
+:repository_type: :file_system
+:repository_name: "gonotes_test"
+:repository_base: "../testdata"
